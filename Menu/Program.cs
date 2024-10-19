@@ -1,7 +1,12 @@
+using Menu.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//Added service to the container with the default connection string 
+builder.Services.AddContext<MenuContext>(option =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 var app = builder.Build();
 

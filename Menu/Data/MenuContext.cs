@@ -36,7 +36,7 @@ namespace Menu.Data
 
         public DbSet<Dish> dishes { get; set; }
         public DbSet<DishIngredient> dishIngredients { get; set; }
-
+        `
         public DbSet<Ingredient> ingredients { get; set; }
 
     }
