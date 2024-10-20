@@ -24,7 +24,7 @@ namespace Menu.Data
                 );
             modelBuilder.Entity<Ingredient>().HasData(
                 new Ingredient { Id = 1, Name = "Tomato Saauce" },
-                new Ingredient { Id = 1, Name = "Cheese" }
+                new Ingredient { Id = 2, Name = "Cheese" }
                 );
             modelBuilder.Entity<DishIngredient>().HasData(
                 new DishIngredient { DishId =1 , IngredientId =1},
@@ -34,8 +34,8 @@ namespace Menu.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Dish> dishes { get; set; }
-        public DbSet<DishIngredient> dishIngredients { get; set; }
+        public DbSet<Dish> Dishes { get; set; }
+        public DbSet<DishIngredient> DishIngredients { get; set; }
         
         public DbSet<Ingredient> ingredients { get; set; }
 
