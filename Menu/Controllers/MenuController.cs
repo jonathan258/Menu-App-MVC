@@ -14,10 +14,21 @@ namespace Menu.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(String searchString)
         {
-            return View(await _context.Dishes.ToListAsync());
+            //for the search bar
+            var  dishes = from d in _context.Dishes
+                          select d;
+            if (!string.IsNullOrEmpty(searchString)) {
+                dishes = dishes.Where(d => d.Name.Contains(searchString));
+
+                return View(await dishes.ToListAsync());
+            }
+            return View(await dishes.ToListAsync());
         }
+
+
+
         public async Task<IActionResult> Details(int? id)
         {
             var dish = await _context.Dishes
